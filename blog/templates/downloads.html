@@ -1,0 +1,101 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<title>Download Files</title>
+<style>
+
+      body {
+        background-color: #181818;
+        color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2em;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      li {
+        margin: 20px;
+        padding: 20px;
+        background-color: #1c1c1c;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #000;
+        transition: all 0.3s ease;
+      }
+
+      li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 10px #000;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #f2f2f2;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: #28a745;
+      }
+
+      .download-link {
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        color: #f2f2f2;
+        font-size: 1em;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .download-link:hover {
+        background-color: #218838;
+      }
+      </style>
+</head>
+
+
+<ul>
+    {% for paper in papers%}
+    <li>
+        <a href="{{paper.source_file.url}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor"
+                 class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                <path d="M5.523 12.424c.14-.082.293-.162.459-.238a7.878 7.878 0 0 1-.45.606c-.28.337-.498.516-.635.572a.266.266 0 0 1-.035.012.282.282 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548zm2.455-1.647c-.119.025-.237.05-.356.078a21.148 21.148 0 0 0 .5-1.05 12.045 12.045 0 0 0 .51.858c-.217.032-.436.07-.654.114zm2.525.939a3.881 3.881 0 0 1-.435-.41c.228.005.434.022.612.054.317.057.466.147.518.209a.095.095 0 0 1 .026.064.436.436 0 0 1-.06.2.307.307 0 0 1-.094.124.107.107 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256zM8.278 6.97c-.04.244-.108.524-.2.829a4.86 4.86 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.517.517 0 0 1 .145-.04c.013.03.028.092.032.198.005.122-.007.277-.038.465z"/>
+                <path fill-rule="evenodd"
+                      d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.651 11.651 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.856.856 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.844.844 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.76 5.76 0 0 0-1.335-.05 10.954 10.954 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.238 1.238 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a19.697 19.697 0 0 1-1.062 2.227 7.662 7.662 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103z"/>
+            </svg>
+
+            <hr>
+        </a>
+        <b> <p style="padding:10px">{{paper.display_name}}</p></b>
+       <a href="{{ paper.source_file.url }}" >
+
+<button class="btn btn-primary", style="border-radius:0px;width:300px"><div style="padding:0px;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg></div></button>
+       </a>
+    </li>
+
+{%endfor%}
+
+
+</ul>
+{%endblock%}
