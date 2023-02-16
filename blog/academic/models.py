@@ -6,6 +6,8 @@ class Subject(models.Model):
     subject_code = models.CharField(max_length=20)
     subject_name = models.CharField(max_length=200)
     subject_description = models.TextField()
+    side_picture =  models.ImageField()
+    date =   models.DateTimeField(auto_now_add  =  True)
 
     def __str__(self):
         return self.subject_name
